@@ -1,0 +1,17 @@
+<div class="today-info">
+    <div class="day" *ngIf="weatherNow">
+        <img src="assets/images/{{weatherNow.weather[0].icon}}.png" alt="">
+        <span class="today">Today</span>
+        <div class="date">{{ currentTime | date:"EEEE, d MMM"}}</div>
+        <div class="temperature">{{ weatherNow.main.temp | number: "0.0-0"}}<sup class="degrees">°C</sup>
+        </div>
+        <!-- <span class="degrees">°C</span> -->
+        <div class="location">{{ location.name }}, {{ location.country }}</div>
+    </div>
+    <div class="timeline">
+        <div class="test" *ngFor="let item of timeline">
+            <div class="time">{{ item.time | date:"HH:mm"}}</div>
+            <div class="timeline-degrees">{{ item.temp | number:"0.0-0" }}°C</div>
+        </div>
+    </div>
+</div>
