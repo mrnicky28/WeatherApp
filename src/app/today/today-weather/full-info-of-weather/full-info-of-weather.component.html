@@ -1,4 +1,5 @@
 <div class="today-info">
+    <div class="time"> {{ clock | date:'HH:mm:ss' }}</div>
     <div class="day" *ngIf="weatherNow">
         <img src="assets/images/{{weatherNow.weather[0].icon}}.png" alt="">
         <span class="today">Today</span>

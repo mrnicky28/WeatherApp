@@ -11,7 +11,7 @@ export class FullInfoOfWeatherComponent implements OnInit {
   weatherNow:any;
   location:any;
   currentTime = new Date();
-
+  clock = Date.now();
 
   constructor(private forecastService: ForecastService) { }
 
@@ -19,9 +19,16 @@ export class FullInfoOfWeatherComponent implements OnInit {
     this.forecastService.getWeatherForecast().subscribe(data =>{
       console.log('wefwef',data);
       this.getTodayForecast(data)
+      this.getTime()
 
     }
     )
+  }
+
+  getTime(){
+    setInterval(() => {
+      this.clock = Date.now();
+    }, 1000);
   }
 
   dateRange(){
